@@ -1,0 +1,5 @@
+operations needed :
+1- loading values into registers
+2- performing arithmetics
+3- sttoring values at memory 
+4- displaying outputs
