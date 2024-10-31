@@ -14,3 +14,8 @@ Rigister :: Rigister() :memory(size, {'0', '0'}) {}
             cout << memory[i].first<< ' ' <<memory[i].second<<'\n';
         }
     }
+void Rigister ::reset_memory() {
+    for (int i = 0; i < size; i++) {
+        memory[i]={'0','0'};
+    }
+}
