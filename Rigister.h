@@ -10,6 +10,7 @@ public:
     Rigister();
     void set_value(int key,pair<char,char> value);
     pair<char,char> get_value(int key);
+    void reset_memory();
     void display_value();
 };
 
