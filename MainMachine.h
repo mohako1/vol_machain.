@@ -14,8 +14,8 @@ class MainMachine {
 public:
     void dataDisplay();
     void dataReset();
-    void getFileNmae(string Name);
-    void dataRead();
+    void getFileName(string Name);
+    void fileLoad();
 };
 
 

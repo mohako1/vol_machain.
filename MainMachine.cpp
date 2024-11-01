@@ -10,10 +10,10 @@ void MainMachine::dataReset() {
     m.reset_memory();
     r.reset_memory();
 }
-void MainMachine::getFileNmae(string Name) {
+void MainMachine::getFileName(string Name) {
     fileName = Name;
 }
-void MainMachine::dataRead() {
+void MainMachine::fileLoad() {
     file.open(fileName);
     string s;
     int address = 0;
