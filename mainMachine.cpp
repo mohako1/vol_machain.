@@ -17,12 +17,17 @@ void mainMachine::dataRead() {
     file.open(fileName);
     string s;
     int address = 0;
-    while (getline(file, s)) {
-        while (!s.empty() && s.size() >= 2) {
+    while (getline(file, s, ' ')) {
+        if (s.size() == 4) {
             pair<char, char> value1 = { s[0], s[1] };
             m.set_value(address, value1);
             address++;
-            s.erase(0, 2);
+            
+            pair<char, char> value2 = { s[2], s[3] };
+            m.set_value(address, value2);
+            address++;
+        } else {
+            cout << "Warning: Incorrect data format at address " << address << endl;
         }
     }
 
