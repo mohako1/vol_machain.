@@ -20,7 +20,7 @@ void InterFace::displayMenu () {
           }else if (choice == 4) {
                machine.dataReset();
           }else if (choice == 5) {
-               return;
+               _Exit(0);
           }else {
                cout << "please enter a valid choice\n";
           }
