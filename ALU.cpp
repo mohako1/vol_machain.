@@ -203,11 +203,26 @@ string ALU::NumtoBin(float num){
 }
 float ALU :: FBintoNum(string num ,int Exp ){
     if(Exp >= 1 ){
-
+        float number = 0 ;
+        for(int i = 0 ; i < 4 ; i++){
+            number += ((int(num[i])-48) * pow(2.0,(((i +1) * -1.0) + Exp)));
+        }
+        return number;
     }
     else if(Exp <= -1){
-
+        for(int i = Exp ; i < 0 ; i++ ){
+            num = '0' + num  ;
+        }
+        float number = 0 ;
+        for(int i = 0 ; i < 4 ; i++){
+            number += ((int(num[i])-48) * pow(2.0,((i +1) * -1.0)));
+        }
+        return number;
     }else{
-
+        float number = 0 ;
+        for(int i = 0 ; i < 4 ; i++){
+            number += ((int(num[i])-48) * pow(2.0,((i +1) * -1.0)));
+        }
+        return number;
     }
 }

@@ -1,18 +1,13 @@
 #include <filesystem>
 #include <iostream>
 #include <vector>
-#include "Rigister.h"
-#include "Rigister.cpp"
-#include "PC.h"
-#include "PC.cpp"
+
 #include "ALU.h"
 #include "ALU.cpp"
 using namespace std ;
 
 int main(){
-    Rigister c;
-    //rig.display_value();
-
-    c.display_value();
-    return 0 ;
+    ALU n  ;
+    float numer = n.FBintoNum("1100" , 1) ;
+    cout << numer ;
 }
