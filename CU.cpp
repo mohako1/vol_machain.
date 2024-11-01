@@ -1,11 +1,4 @@
 #include "CU.h"
-Rigister rig;
-Memory mem;
-ALU al;
-PC p;
-char z;
-
-
 pair<char,char> CU :: load_1(int Raddress, int Maddress,Rigister &rig,Memory &mem) {
     pair<char,char>value = mem.get_value(Maddress);
     pair<char,char>result = rig.set_value(Raddress,value);
@@ -26,8 +19,6 @@ pair<char,char> CU ::store(int Raddress, int Maddress,Rigister &rig,Memory &mem)
         pair<char,char>result = mem.set_value(Maddress,value);
         return result;
     }
-
-
 }
 pair<char,char> CU::move(int Raddress, int raddress,Rigister &rig) {
     pair<char,char>value = rig.get_value(Raddress);
@@ -62,13 +53,31 @@ pair<char,char> CU::operation(const string &op,ALU &al,Rigister &rig,Memory &mem
     int s = al.BintoNum(m);
 
     if (op[0] == '1') {
-        return load_1(rad, s, rig, mem);
+         load_1(rad, s, rig, mem);
     } else if (op[0] == '2') {
-        return load_2(rad, {op[2],op[3]}, rig);
+         load_2(rad, {op[2],op[3]}, rig);
     } else if (op[0] == '3') {
-        return store(rad, s, rig, mem);
+         store(rad, s, rig, mem);
     } else if (op[0] == '4') {
-        return move(rad1, rad3, rig);
+         move(rad1, rad3, rig);
+    }
+    else if (op[0] == '5') {
+        al.add_complement(rad3,rad1, rad, rig);
+    }
+    else if (op[0] == '6') {
+        al.add_flowting(rad,rad1, rad3, rig);
+    }
+    else if (op[0] == '7') {
+        al.BitOr(rad,rad1, rad3, rig);
+    }
+    else if (op[0] == '8') {
+        al.BitAnd(rad,rad1, rad3, rig);
+    }
+    else if (op[0] == '9') {
+        al.BitXor(rad,rad1, rad3, rig);
+    }
+    else if (op[0] == 'A') {
+       al.Rotate(rad1,rad3,rig);
     }
     else if (op[0]=='B'){
         jump(rad,s,rig,p);
