@@ -7,11 +7,11 @@
 class CU {
 public:
     CU(){};
-pair<char,char> load_1(int Raddress,int Maddress,Rigister &rig,Memory &mem);
-pair<char,char> load_2(int Raddress,pair<char, char>xy,Rigister &rig);
-pair<char,char> store(int Raddress,int Maddress,Rigister &rig,Memory &mem);
-pair<char,char> move(int Raddress,int raddress,Rigister &rig);
-pair<char,char> operation(const string &op,ALU &al,Rigister &rig,Memory &mem,PC &p);
+    void load_1(int Raddress,int Maddress,Rigister &rig,Memory &mem);
+    void load_2(int Raddress,pair<char, char>xy,Rigister &rig);
+    void store(int Raddress,int Maddress,Rigister &rig,Memory &mem);
+    void move(int Raddress,int raddress,Rigister &rig);
+    void operation(const string &op,ALU &al,Rigister &rig,Memory &mem,PC &p);
 void jump(int Raddress,int address,Rigister &rig,PC &p);
 void halt(PC &p);
 

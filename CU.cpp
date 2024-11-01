@@ -1,29 +1,24 @@
 #include "CU.h"
-pair<char,char> CU :: load_1(int Raddress, int Maddress,Rigister &rig,Memory &mem) {
+void CU :: load_1(int Raddress, int Maddress,Rigister &rig,Memory &mem) {
     pair<char,char>value = mem.get_value(Maddress);
-    pair<char,char>result = rig.set_value(Raddress,value);
-    return result;
+    rig.set_value(Raddress,value);
 }
-pair<char,char> CU :: load_2(int Raddress,pair<char, char>xy,Rigister &rig) {
+void CU :: load_2(int Raddress,pair<char, char>xy,Rigister &rig) {
     pair<char,char>value = xy;
-    pair<char,char>result = rig.set_value(Raddress,value);
-    return result;
+    rig.set_value(Raddress,value);
 }
-pair<char,char> CU ::store(int Raddress, int Maddress,Rigister &rig,Memory &mem) {
+void CU ::store(int Raddress, int Maddress,Rigister &rig,Memory &mem) {
     pair<char,char>value = rig.get_value(Raddress);
     if (Maddress == 0) {
-        pair<char,char>result =  mem.set_value(0, value);
-        return result;
+        mem.set_value(0, value);
     }
     else{
-        pair<char,char>result = mem.set_value(Maddress,value);
-        return result;
+        mem.set_value(Maddress,value);
     }
 }
-pair<char,char> CU::move(int Raddress, int raddress,Rigister &rig) {
+void CU::move(int Raddress, int raddress,Rigister &rig) {
     pair<char,char>value = rig.get_value(Raddress);
-    pair<char,char>result = rig.set_value(raddress,value);
-    return result;
+    rig.set_value(raddress,value);
 }
 void CU::jump(int Raddress,int address,Rigister &rig,PC &p){
     if (rig.get_value(Raddress)==rig.get_value(0)){
@@ -35,7 +30,7 @@ void CU::jump(int Raddress,int address,Rigister &rig,PC &p){
 void CU ::halt(PC &p) {
     p.Set_Zero();
 }
-pair<char,char> CU::operation(const string &op,ALU &al,Rigister &rig,Memory &mem,PC &p) {
+void CU::operation(const string &op,ALU &al,Rigister &rig,Memory &mem,PC &p) {
     pair<char, char> sd = {'0',op[1] };
     string q = al.HexTobin(sd);
     int rad = al.BintoNum(q);
@@ -85,5 +80,4 @@ pair<char,char> CU::operation(const string &op,ALU &al,Rigister &rig,Memory &mem
     else if (op[0]=='C'){
         halt(p);
     }
-    return {'0','0'};
 }
