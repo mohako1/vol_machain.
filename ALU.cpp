@@ -1,6 +1,8 @@
 #include "ALU.h"
 #include <math.h>
-void ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
+#include <string>
+
+pair<char,char> ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -26,10 +28,10 @@ void ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-void ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
+pair<char,char> ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
 
 }
-void ALU::BitOr(int ind1 , int ind2 , int ind3 , Rigister &Rig){
+pair<char,char> ALU::BitOr(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -40,7 +42,7 @@ void ALU::BitOr(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-void ALU::BitAnd(int ind1 , int ind2 , int ind3 , Rigister & Rig){
+pair<char,char> ALU::BitAnd(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -51,7 +53,7 @@ void ALU::BitAnd(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-void ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
+pair<char,char> ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -63,7 +65,7 @@ void ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-void ALU::Rotate(int ind1 ,int Steps , Rigister & Rig){
+pair<char,char> ALU::Rotate(int ind1 ,int Steps , Rigister & Rig){
     pair<char,char> FinalRes ;
     if(Steps % 2 == 1 ){
         FinalRes.first = Rig.get_value(ind1).second ;
