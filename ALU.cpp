@@ -2,7 +2,7 @@
 #include <math.h>
 #include <string>
 
-pair<char,char> ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
+void ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -28,10 +28,25 @@ pair<char,char> ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-pair<char,char> ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
-
+void ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
+    string stNum = HexTobin(Rig.get_value(ind1));
+    string ndNum = HexTobin(Rig.get_value(ind2));
+    int stExp = BintoNum(stNum.substr(1,3)) - 4 ;
+    int ndExp = BintoNum(ndNum.substr(1,3)) - 4 ;
+    float stMint = FBintoNum(stNum.substr(4,4) ,stExp) ;
+    float ndMint = FBintoNum(ndNum.substr(4,4) ,ndExp) ;
+    if(stNum[0] == '1'){
+        stMint *= -1 ;
+    }
+    if(ndNum[0] == '1'){
+        ndMint *= -1 ;
+    }
+    float res = stMint + ndMint ;
+    string PreFinalRes = NumtoBin(res) ;
+    pair<char ,char> FinalRes = BintoHex(PreFinalRes) ;
+    Rig.set_value(ind3 ,FinalRes) ;
 }
-pair<char,char> ALU::BitOr(int ind1 , int ind2 , int ind3 , Rigister &Rig){
+void ALU::BitOr(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -42,7 +57,7 @@ pair<char,char> ALU::BitOr(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-pair<char,char> ALU::BitAnd(int ind1 , int ind2 , int ind3 , Rigister & Rig){
+void ALU::BitAnd(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -53,7 +68,7 @@ pair<char,char> ALU::BitAnd(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-pair<char,char> ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
+void ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
     string ndNum = HexTobin(Rig.get_value(ind2));
     string res ;
@@ -65,7 +80,7 @@ pair<char,char> ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }
-pair<char,char> ALU::Rotate(int ind1 ,int Steps , Rigister & Rig){
+void ALU::Rotate(int ind1 ,int Steps , Rigister & Rig){
     pair<char,char> FinalRes ;
     if(Steps % 2 == 1 ){
         FinalRes.first = Rig.get_value(ind1).second ;
@@ -186,6 +201,13 @@ int ALU::BintoNum(string num){
 string ALU::NumtoBin(float num){
 
 }
-float ALU :: FBintoNum(string num ){
+float ALU :: FBintoNum(string num ,int Exp ){
+    if(Exp >= 1 ){
 
+    }
+    else if(Exp <= -1){
+
+    }else{
+
+    }
 }
