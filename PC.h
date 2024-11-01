@@ -8,6 +8,7 @@ public :
     void next_count() ;
     void Set_Zero() ;
     void display_value() ;
+    void set_count(int jump);
 private:
     int counter ;
 };

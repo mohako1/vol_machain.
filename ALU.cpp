@@ -19,10 +19,12 @@ void ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
                 res += '0' ;
             }else{
                 carry = '1' ;
-                res += '1' ; 
+                res += '1' ;
             }
         }
     }
+    pair<char,char> FinalRes = BintoHex(res) ;
+    Rig.set_value(ind3 , FinalRes) ;
 }
 void ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
 
