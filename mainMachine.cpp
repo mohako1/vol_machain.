@@ -19,17 +19,21 @@ void mainMachine::dataRead() {
     int address = 0;
     while (getline(file, s, ' ')) {
         if (s.size() == 4) {
-            pair<char, char> value1 = { s[0], s[1] };
-            m.set_value(address, value1);
-            address++;
-            
-            pair<char, char> value2 = { s[2], s[3] };
-            m.set_value(address, value2);
-            address++;
-        } else {
-            cout << "Warning: Incorrect data format at address " << address << endl;
+            for (int i = 0; i < s.size(); i++) {
+                if (s[i] >= '0' && s[i] <= '9'|| toupper(s[i]) == ('A','B','C','D','E','F')) {
+                    pair<char, char> value1 = { s[0], s[1] };
+                    m.set_value(address, value1);
+                    address++;
+                    pair<char, char> value2 = { s[2], s[3] };
+                    m.set_value(address, value2);
+                    address++;
+                } else {
+                    cout << "invalid value at address" << address << endl;
+                }
+            }
+        }else {
+                cout << "Warning: Incorrect data format at address " << address << endl;
         }
     }
-
 }
 
