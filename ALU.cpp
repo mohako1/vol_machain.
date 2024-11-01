@@ -96,47 +96,45 @@ bool ALU::EqualTo(int ind1 , Rigister & Rig){
         return false ;
     }
 }
-string ALU::HexTobin(pair<char , char> hexa){
-    string bin = "" ;
+string ALU::HexTobin(pair<char , char> hexa) {
+    string bin = "";
     switch (hexa.first) {
-        case('0') : bin += "0000" ;
-        case('1') : bin += "0001" ;
-        case('2') : bin += "0010" ;
-        case('3') : bin += "0011" ;
-        case('4') : bin += "0100" ;
-        case('5') : bin += "0101" ;
-        case('6') : bin += "0110" ;
-        case('7') : bin += "0111" ;
-        case('8') : bin += "1000" ;
-        case('9') : bin += "1001" ;
-        case('A') : bin += "1010" ;
-        case('B') : bin += "1011" ;
-        case('C') : bin += "1100" ;
-        case('D') : bin += "1101" ;
-        case('E') : bin += "1110" ;
-        default:  bin += "1111" ;
-        break ;
+        case '0': bin += "0000"; break;
+        case '1': bin += "0001"; break;
+        case '2': bin += "0010"; break;
+        case '3': bin += "0011"; break;
+        case '4': bin += "0100"; break;
+        case '5': bin += "0101"; break;
+        case '6': bin += "0110"; break;
+        case '7': bin += "0111"; break;
+        case '8': bin += "1000"; break;
+        case '9': bin += "1001"; break;
+        case 'A': bin += "1010"; break;
+        case 'B': bin += "1011"; break;
+        case 'C': bin += "1100"; break;
+        case 'D': bin += "1101"; break;
+        case 'E': bin += "1110"; break;
+        default:  bin += "1111"; break;
     }
     switch (hexa.second) {
-        case('0') : bin += "0000" ;
-        case('1') : bin += "0001" ;
-        case('2') : bin += "0010" ;
-        case('3') : bin += "0011" ;
-        case('4') : bin += "0100" ;
-        case('5') : bin += "0101" ;
-        case('6') : bin += "0110" ;
-        case('7') : bin += "0111" ;
-        case('8') : bin += "1000" ;
-        case('9') : bin += "1001" ;
-        case('A') : bin += "1010" ;
-        case('B') : bin += "1011" ;
-        case('C') : bin += "1100" ;
-        case('D') : bin += "1101" ;
-        case('E') : bin += "1110" ;
-        default:  bin += "1111" ;
-            break ;
+        case '0': bin += "0000"; break;
+        case '1': bin += "0001"; break;
+        case '2': bin += "0010"; break;
+        case '3': bin += "0011"; break;
+        case '4': bin += "0100"; break;
+        case '5': bin += "0101"; break;
+        case '6': bin += "0110"; break;
+        case '7': bin += "0111"; break;
+        case '8': bin += "1000"; break;
+        case '9': bin += "1001"; break;
+        case 'A': bin += "1010"; break;
+        case 'B': bin += "1011"; break;
+        case 'C': bin += "1100"; break;
+        case 'D': bin += "1101"; break;
+        case 'E': bin += "1110"; break;
+        default:  bin += "1111"; break;
     }
-    return bin ;
+    return bin;
 }
 pair<char,char> ALU:: BintoHex(string num){
     pair<char,char> hexa ;
@@ -177,7 +175,7 @@ pair<char,char> ALU:: BintoHex(string num){
     return hexa ;
 }
 int ALU::BintoNum(string num){
-    int number ;
+    int number = 0 ;
     for(int i = num.size()-1 ; i >= 0 ; i--){
         number += ((int(num[i])-48) * pow(2,num.size()-1 - i ));
     }
