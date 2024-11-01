@@ -5,8 +5,9 @@
 
 
 class mainMachine {
-public:
     BUS b ;
+
+public:
     void dataDisplay();
     void dataReset();
 };
