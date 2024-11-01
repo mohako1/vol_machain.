@@ -19,7 +19,7 @@ void mainMachine::dataRead() {
     int address = 0;
     while (getline(file, s)) {
         while (!s.empty() && s.size() >= 2) {
-            std::pair<char, char> value1 = { s[0], s[1] };
+            pair<char, char> value1 = { s[0], s[1] };
             m.set_value(address, value1);
             address++;
             s.erase(0, 2);
