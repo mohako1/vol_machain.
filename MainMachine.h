@@ -8,7 +8,6 @@
 #include "Rigister.h"
 class MainMachine {
     Memory m;
-    Rigister r;
     fstream file;
     string fileName;
 public:
