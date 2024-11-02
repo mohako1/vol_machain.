@@ -199,7 +199,70 @@ int ALU::BintoNum(string num){
     return number ;
 }
 string ALU::NumtoBin(float num){
-
+    string res ;
+    if(num >= 0) res += '0' ;
+    else res += '1' ;
+    int exp ;
+    if(num >= 1){
+        string PreRes ;
+        int nonFloat = int(num) ;
+        float Floating = num - (nonFloat * 1.0 ) ;
+        while(nonFloat != 0){
+            PreRes = to_string(nonFloat % 2) + PreRes ;
+            nonFloat /= 2 ;
+        }
+        exp = PreRes.size() + 4 ;
+        while(Floating != 0){
+            if(Floating * 2 >= 1){
+                PreRes += '1' ;
+                Floating -= 1 ;
+            }else{
+                PreRes += '0' ;
+            }
+        }
+        string EXP ;
+        while(exp != 0){
+            EXP = to_string(exp % 2) + EXP ;
+            exp /= 2 ;
+        }
+        EXP.reserve() ;
+        string EXP1 = EXP.substr(0,3) ;
+        EXP1.reserve() ;
+        res += EXP1 ;
+        PreRes = "0000" + PreRes ;
+        PreRes.reserve() ;
+        string PreRes1 = PreRes.substr(0,4) ;
+        PreRes1.reserve() ;
+        res += PreRes1 ;
+    }else{
+        string PreRes ;
+        while(num != 0){
+            if(num * 2 >= 1){
+                PreRes += '1' ;
+                num -= 1 ;
+            }else{
+                num += '0' ;
+            }
+        }
+        int exp = 0 ;
+        while(PreRes[exp] != '1'){
+            exp++ ;
+        }
+        exp += 4 ;
+        string EXP ;
+        while(exp != 0){
+            EXP = to_string(exp % 2) + EXP ;
+            exp /= 2 ;
+        }
+        EXP.reserve() ;
+        string EXP1 = EXP.substr(0,3) ;
+        EXP1.reserve() ;
+        res += EXP1 ;
+        PreRes += "0000" ;
+        string PreRes1 = PreRes.substr(0,4) ;
+        res += PreRes1 ;
+    }
+    return res ;
 }
 float ALU :: FBintoNum(string num ,int Exp ){
     if(Exp >= 1 ){
