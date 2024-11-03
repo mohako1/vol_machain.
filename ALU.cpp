@@ -37,8 +37,9 @@ void ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     string ndNum = HexTobin(Rig.get_value(ind2));
     int stExp = BintoNum(stNum.substr(1,3)) - 4 ;
     int ndExp = BintoNum(ndNum.substr(1,3)) - 4 ;
-    float stMint = FBintoNum(stNum.substr(4,4) ,stExp) ;
+    float stMint = FBintoNum(stNum.substr(4,4) ,stExp)  ;
     float ndMint = FBintoNum(ndNum.substr(4,4) ,ndExp) ;
+    cout << stMint << '\n' << ndMint << '\n' ;
     if(stNum[0] == '1'){
         stMint *= -1 ;
     }
@@ -46,7 +47,8 @@ void ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
         ndMint *= -1 ;
     }
     float res = stMint + ndMint ;
-    string PreFinalRes = NumtoBin(res) ;
+    cout << res << '\n' ;
+    string PreFinalRes = NumtoBin(res) ; // the problem of stop runing is here
     pair<char ,char> FinalRes = BintoHex(PreFinalRes) ;
     Rig.set_value(ind3 ,FinalRes) ;
 }
@@ -78,9 +80,10 @@ void ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     string res ;
     for(int i = 0 ; i < 8 ; i++){
         if(stNum[i] == '1' && ndNum[i] == '0' ) res += '1' ;
-        else if (stNum[i] == '0' && ndNum[i] == 'i') res += '1' ;
+        else if (stNum[i] == '0' && ndNum[i] == '1') res += '1' ;
         else res += '0' ;
     }
+    cout << res << '\n' ;
     pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind3 , FinalRes) ;
 }

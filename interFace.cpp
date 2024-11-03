@@ -1,8 +1,7 @@
 #include "interFace.h"
-#include <Memory.h>
-#include <Memory.cpp>
-#include <CUP.h>
-#include <CUP.cpp>
+#include "Memory.h"
+#include  "CUP.h"
+#include "CUP.cpp"
 
 CUP cpu ;
 Memory meo ;
