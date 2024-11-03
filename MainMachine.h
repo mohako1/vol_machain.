@@ -2,7 +2,6 @@
 #define MAINMACHINE_H
 #include "BUS.h"
 #include <string>
-#include "BUS.cpp"
 #include <fstream>
 #include "Memory.h"
 #include "Rigister.h"
@@ -19,4 +18,4 @@ public:
 
 
 
-#endif //MAINMACHINE_H
+#endif 
