@@ -1,9 +1,6 @@
 #ifndef VOL_ASSIGNMNT_ALU_H
 #define VOL_ASSIGNMNT_ALU_H
-
 #include "Rigister.h"
-#include "Rigister.cpp"
-
 
 class ALU {
 public:
