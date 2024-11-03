@@ -1,5 +1,5 @@
 #include "ALU.h"
-#include <math.h>
+#include <cmath>
 #include <string>
 
 void ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
@@ -10,18 +10,22 @@ void ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     for(int i = 7 ; i >= 0 ; i--){
         if((stNum[i] == '1' && ndNum[i] == '0' && carry == '0') || (stNum[i] == '0' && ndNum[i] == '1' && carry == '0') || (stNum[i] == '0' && ndNum[i] == '0' && carry == '1')){
             carry = '0' ;
-            res += '1' ;
+            res = '1' + res;
         }
         else if(stNum[i] == '0' && ndNum[i] == '0' && carry == '0'){
             carry = '0' ;
-            res += '0' ;
+            res = '0' + res;
         }else{
             if(carry == '0'){
                 carry = '1' ;
-                res += '0' ;
+                res = '0' + res;
+            }
+            else if((carry == '1' && stNum[i] == '1' && ndNum[i] == '0') || (carry == '1' && stNum[i] == '0' && ndNum[i] == '1')){
+                carry = '1' ;
+                res = '0' + res;
             }else{
                 carry = '1' ;
-                res += '1' ;
+                res = '1' + res;
             }
         }
     }
