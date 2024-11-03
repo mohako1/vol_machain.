@@ -3,12 +3,9 @@
 #define BUS_H
 
 #include <iostream>
-
 #include "Rigister.h"
-#include "Rigister.cpp"
 #include "Memory.h"
 
-#include "Memory.cpp"
 
 class BUS {
     Memory m;
