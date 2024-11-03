@@ -9,7 +9,7 @@ class Memory {
     static const int size = 256;
 public:
     Memory();
-    void set_value(int address, pair<char,char> value1);
+    pair<char,char> set_value(int address, pair<char,char> value1);
     pair<char, char> get_value(int address);
     void reset_memory();
     void display_value();
