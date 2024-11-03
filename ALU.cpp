@@ -88,14 +88,13 @@ void ALU::BitXor(int ind1 , int ind2 , int ind3 , Rigister & Rig){
     Rig.set_value(ind3 , FinalRes) ;
 }
 void ALU::Rotate(int ind1 ,int Steps , Rigister & Rig){
-    pair<char,char> FinalRes ;
-    if(Steps % 2 == 1 ){
-        FinalRes.first = Rig.get_value(ind1).second ;
-        FinalRes.second = Rig.get_value(ind1).first ;
-    }else{
-        FinalRes.first = Rig.get_value(ind1).first ;
-        FinalRes.second = Rig.get_value(ind1).second ;
+    string res = HexTobin(Rig.get_value(ind1));
+    cout << res << '\n' ;
+    for(int i = 0 ; i < Steps ; i++){
+        res = res[7] + (res.substr(0,7)) ;
     }
+    cout << res << '\n'  ;
+    pair<char,char> FinalRes = BintoHex(res) ;
     Rig.set_value(ind1 , FinalRes) ;
 }
 bool ALU::Greater(int ind1 , Rigister & Rig){
