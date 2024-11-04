@@ -3,12 +3,9 @@ using namespace std;
 
 void MainMachine::dataDisplay() {
     m.display_value();
-    r.display_value();
-
 }
 void MainMachine::dataReset() {
     m.reset_memory();
-    r.reset_memory();
 }
 void MainMachine::getFileName(string Name) {
     fileName = Name;
