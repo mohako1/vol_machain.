@@ -1,6 +1,7 @@
 #include "ALU.h"
 #include <cmath>
 #include <string>
+#include <algorithm>
 
 void ALU:: add_complement(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     string stNum = HexTobin(Rig.get_value(ind1));
@@ -39,7 +40,6 @@ void ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
     int ndExp = BintoNum(ndNum.substr(1,3)) - 4 ;
     float stMint = FBintoNum(stNum.substr(4,4) ,stExp)  ;
     float ndMint = FBintoNum(ndNum.substr(4,4) ,ndExp) ;
-    cout << stMint << '\n' << ndMint << '\n' ;
     if(stNum[0] == '1'){
         stMint *= -1 ;
     }
@@ -47,7 +47,6 @@ void ALU::add_flowting(int ind1 , int ind2 , int ind3 , Rigister &Rig){
         ndMint *= -1 ;
     }
     float res = stMint + ndMint ;
-    cout << res << '\n' ;
     string PreFinalRes = NumtoBin(res) ; // the problem of stop runing is here
     pair<char ,char> FinalRes = BintoHex(PreFinalRes) ;
     Rig.set_value(ind3 ,FinalRes) ;
@@ -207,7 +206,10 @@ int ALU::BintoNum(string num){
 string ALU::NumtoBin(float num){
     string res ;
     if(num >= 0) res += '0' ;
-    else res += '1' ;
+    else {
+        res += '1';
+        num *= -1 ;
+    }
     int exp ;
     if(num >= 1){
         string PreRes ;
@@ -218,7 +220,8 @@ string ALU::NumtoBin(float num){
             nonFloat /= 2 ;
         }
         exp = PreRes.size() + 4 ;
-        while(Floating != 0){
+        for(int i = 0 ; i < 4 ; i++){
+            Floating *=2 ;
             if(Floating * 2 >= 1){
                 PreRes += '1' ;
                 Floating -= 1 ;
@@ -231,40 +234,43 @@ string ALU::NumtoBin(float num){
             EXP = to_string(exp % 2) + EXP ;
             exp /= 2 ;
         }
-        EXP.reserve() ;
+        reverse(EXP.begin(),EXP.end()) ;
         string EXP1 = EXP.substr(0,3) ;
-        EXP1.reserve() ;
+        reverse(EXP1.begin(),EXP1.end()) ;
         res += EXP1 ;
-        PreRes = "0000" + PreRes ;
-        PreRes.reserve() ;
+        PreRes += "0000" ;
         string PreRes1 = PreRes.substr(0,4) ;
-        PreRes1.reserve() ;
         res += PreRes1 ;
     }else{
         string PreRes ;
-        while(num != 0){
-            if(num * 2 >= 1){
+        for(int i = 0 ; i < 4 ; i++){
+            num *= 2.0 ;
+            if(num >= 1){
                 PreRes += '1' ;
                 num -= 1 ;
+
             }else{
-                num += '0' ;
+                PreRes += '0' ;
             }
         }
         int exp = 0 ;
         while(PreRes[exp] != '1'){
             exp++ ;
+            PreRes += '0' ;
         }
+        PreRes = PreRes.substr(exp,4) ;
+        exp *= -1 ;
         exp += 4 ;
         string EXP ;
         while(exp != 0){
             EXP = to_string(exp % 2) + EXP ;
             exp /= 2 ;
         }
-        EXP.reserve() ;
+        EXP = "000" + EXP ;
+        reverse(EXP.begin(),EXP.end()) ;
         string EXP1 = EXP.substr(0,3) ;
-        EXP1.reserve() ;
+        reverse(EXP1.begin(),EXP1.end()) ;
         res += EXP1 ;
-        PreRes += "0000" ;
         string PreRes1 = PreRes.substr(0,4) ;
         res += PreRes1 ;
     }
