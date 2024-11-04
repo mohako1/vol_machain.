@@ -3,6 +3,7 @@ using namespace std;
 
 void MainMachine::dataDisplay() {
     m.display_value();
+    cpu.display();
 }
 void MainMachine::dataReset() {
     m.reset_memory();
@@ -33,4 +34,9 @@ void MainMachine::fileLoad() {
         }
     }
 }
+
+void MainMachine::execute() {
+    cpu.exution(m);
+}
+
 
