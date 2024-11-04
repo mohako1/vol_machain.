@@ -9,6 +9,7 @@ public :
     void Set_Zero() ;
     void display_value() ;
     void set_count(int jump);
+    int git_value() ;
 private:
     int counter ;
 };

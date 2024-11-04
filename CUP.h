@@ -2,8 +2,7 @@
 #define CUP_H
 
 
-#include <Memory.h>
-#include <Memory.h>
+#include "Memory.h"
 
 class CUP {
 public:
