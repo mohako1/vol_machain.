@@ -3,8 +3,6 @@
 #include  "CUP.h"
 #include "CUP.cpp"
 
-CUP cpu ;
-Memory meo ;
 using namespace std;
 void InterFace::displayMenu () {
      while (true) {
@@ -19,7 +17,7 @@ void InterFace::displayMenu () {
                machine.getFileName(name);
                machine.fileLoad();
           }else if (choice == 2) {
-               cpu.exution(meo) ;
+               machine.execute();
                cout << "the data is being executed\n";
           }else if (choice == 3) {
                machine.dataDisplay();

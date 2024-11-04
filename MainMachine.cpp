@@ -3,12 +3,10 @@ using namespace std;
 
 void MainMachine::dataDisplay() {
     m.display_value();
-    r.display_value();
-
+    cpu.display();
 }
 void MainMachine::dataReset() {
     m.reset_memory();
-    r.reset_memory();
 }
 void MainMachine::getFileName(string Name) {
     fileName = Name;
@@ -36,4 +34,9 @@ void MainMachine::fileLoad() {
         }
     }
 }
+
+void MainMachine::execute() {
+    cpu.exution(m);
+}
+
 
