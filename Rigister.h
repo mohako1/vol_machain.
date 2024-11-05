@@ -8,7 +8,6 @@ class Rigister {
    vector <pair<char,char>>memory;
    static const int size = 16;
 public:
-
     Rigister();
     pair<char,char> set_value(int address, pair<char,char> value1);
     pair<char, char> get_value(int address);

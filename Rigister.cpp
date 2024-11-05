@@ -7,8 +7,11 @@ pair<char,char> Rigister::set_value(int address,pair<char,char> value1) {
     return result;
     }
 pair<char, char> Rigister :: get_value(int address){
-            return memory[address];
+    if (address < 0 || address >= memory.size()) {
+        throw out_of_range("Address out of bounds");
     }
+    return memory[address];
+}
     void Rigister :: display_value() {
         for (int i = 0; i < size; i++) {
             cout << memory[i].first<<memory[i].second<<'\n';

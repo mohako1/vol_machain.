@@ -25,8 +25,8 @@ pair<char,char> CU::move(int Raddress, int raddress,Rigister &rig) {
     pair<char,char>result = rig.set_value(raddress,value);
     return result;
 }
-void CU ::halt(PC &p) {
-    p.Set_Zero();
+void CU::halt(PC &p) {
+    p.set_count(256);
 }
 pair<char,char> CU::operation(const string &op,ALU &al,Rigister &rig,Memory &mem,PC &p) {
     pair<char, char> sd = {'0',op[1] };

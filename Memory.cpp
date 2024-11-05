@@ -11,7 +11,6 @@ pair<char, char> Memory::get_value(int address) {
     }
     return memory[address];
 }
-
 void Memory :: display_value() {
     for (int i = 0; i < size; i++) {
         cout << memory[i].first<<memory[i].second<<'\n';

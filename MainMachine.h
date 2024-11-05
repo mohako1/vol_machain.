@@ -1,13 +1,8 @@
 #ifndef MAINMACHINE_H
 #define MAINMACHINE_H
-#include "BUS.h"
-#include <string>
-#include <fstream>
-#include "Memory.h"
-#include "Rigister.h"
-#include "Bus.h"
 #include "CUP.h"
-#include "CUP.cpp"
+#include <fstream>
+
 class MainMachine {
     CUP cpu;
     Memory m;

@@ -1,7 +1,6 @@
 #ifndef TASKS_CU_H
 #define TASKS_CU_H
 #include "Memory.h"
-#include "Rigister.h"
 #include "ALU.h"
 #include "PC.h"
 class CU {

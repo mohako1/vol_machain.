@@ -10,7 +10,7 @@ void PC::Set_Zero() {
     counter = 1 ;
 }
 void PC::display_value(){
-    cout << counter ;
+    cout << counter <<'\n' ;
 }
 void PC::set_count(int jump) {
     counter = jump ;

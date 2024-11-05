@@ -1,9 +1,11 @@
 #ifndef CUP_H
 #define CUP_H
-
-
 #include "Memory.h"
-
+#include "PC.h"
+#include "ALU.h"
+#include "CU.h"
+#include "Rigister.h"
+#include <string>
 class CUP {
 public:
     void exution(Memory & Meo) ;
@@ -12,5 +14,4 @@ public:
 };
 
 
-
-#endif //CUP_H
+#endif

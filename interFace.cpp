@@ -1,32 +1,41 @@
 #include "interFace.h"
-#include "Memory.h"
-#include  "CUP.h"
-#include "CUP.cpp"
 
 using namespace std;
-void InterFace::displayMenu () {
-     while (true) {
-          cout << "welcome to our vole machine\n";
-          cout << "please select what do want to do:-\n";
-          cout << "1. load a new file   2. execute      3. display      4. reset to zero    5. exit\n";
-          cin >> choice;
-          cin.ignore();
-          if (choice == 1) {
-               cout << "please enter the file name:";
-               cin >> name ;
-               machine.getFileName(name);
-               machine.fileLoad();
-          }else if (choice == 2) {
-               machine.execute();
-               cout << "the data is being executed\n";
-          }else if (choice == 3) {
-               machine.dataDisplay();
-          }else if (choice == 4) {
-               machine.dataReset();
-          }else if (choice == 5) {
-               _Exit(0);
-          }else {
-               cout << "please enter a valid choice\n";
-          }
-     }
+
+void InterFace::displayMenu() {
+    cout << "\nWelcome to our Vole Machine\n";
+    while (true) {
+        cout << "Please select what you want to do:\n";
+        cout << "1. Load a new file\n";
+        cout << "2. Execute instructions\n";
+        cout << "3. Display memory and register data\n";
+        cout << "4. Reset memory to zero\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice (1-5): ";
+        cin >> choice;
+        if (cin.fail() || choice < 1 || choice > 5) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Please enter a valid choice (1-5).\n";
+        } else {
+            cin.ignore();
+
+            if (choice == 1) {
+                cout << "Please enter the file name: ";
+                cin >> name;
+                machine.getFileName(name);
+                machine.fileLoad();
+            } else if (choice == 2) {
+                machine.execute();
+                cout << "the execute is done.\n";
+            } else if (choice == 3) {
+                machine.dataDisplay();
+            } else if (choice == 4) {
+                machine.dataReset();
+            } else if (choice == 5) {
+                cout << "Exiting the program. Goodbye!\n";
+                _Exit(0);
+            }
+        }
+    }
 }
