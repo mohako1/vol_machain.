@@ -10,7 +10,7 @@ class CUP {
 public:
     void exution(Memory & Meo) ;
     void display();
-
+    void run_next_step(Memory & Meo);
 };
 
 
