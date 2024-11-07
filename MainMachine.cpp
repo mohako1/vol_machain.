@@ -43,7 +43,7 @@ void MainMachine::fileLoad() {
         }
         file.close();
     } else {
-        cout << "Invalid choice!\n";
+        cout << "Error opening file\n";
     }
 }
 
@@ -51,8 +51,8 @@ void MainMachine::fileLoad() {
 void MainMachine::execute() {
     cpu.exution(m);
 }
-void MainMachine::Steps() {
+
+void MainMachine::runNextStep() {
     cpu.run_next_step(m);
 }
-
 

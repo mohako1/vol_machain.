@@ -14,7 +14,7 @@ public:
     void getFileName(string Name);
     void fileLoad();
     void execute();
-    void Steps();
+    void runNextStep();
 };
 
 
