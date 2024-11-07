@@ -7,6 +7,11 @@
 #include "Rigister.h"
 #include <string>
 class CUP {
+    Rigister Rig ;
+    PC counter ;
+    ALU alu ;
+    CU control ;
+    string IR="";
 public:
     void exution(Memory & Meo) ;
     void display();

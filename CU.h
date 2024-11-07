@@ -5,7 +5,7 @@
 #include "PC.h"
 class CU {
 public:
-    CU(){};
+    CU();
 pair<char,char> load_1(int Raddress,int Maddress,Rigister &rig,Memory &mem);
 pair<char,char> load_2(int Raddress,pair<char, char>xy,Rigister &rig);
 pair<char,char> store(int Raddress,int Maddress,Rigister &rig,Memory &mem);

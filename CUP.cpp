@@ -1,9 +1,5 @@
 #include "CUP.h"
-Rigister Rig ;
-PC counter ;
-ALU alu ;
-CU control ;
-string IR="";
+
 using namespace std ;
 void CUP::exution(Memory &meo) {
     int count = 1;
@@ -34,6 +30,5 @@ void CUP::run_next_step(Memory &meo){
     IR.push_back(instrct2.second);
     control.operation(IR, alu, Rig, meo, counter);
     counter.next_count();
-    count = counter.git_value();
     IR.clear();
 }
