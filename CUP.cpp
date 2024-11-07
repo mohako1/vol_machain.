@@ -3,7 +3,7 @@
 using namespace std ;
 void CUP::exution(Memory &meo) {
     int count = 1;
-    for (; count < 256; ) {
+    for (; count < 254; ) {
         pair<char, char> instrct1 = meo.get_value(counter.git_value() - 1);
         pair<char, char> instrct2 = meo.get_value(counter.git_value() );
         IR.push_back(instrct1.first);
