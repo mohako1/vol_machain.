@@ -51,5 +51,8 @@ void MainMachine::fileLoad() {
 void MainMachine::execute() {
     cpu.exution(m);
 }
+void MainMachine::Steps() {
+    cpu.run_next_step(m);
+}
 
 
